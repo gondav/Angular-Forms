@@ -1,0 +1,37 @@
+<form>
+  <h2>Reactive Form</h2>
+  <div ngModelGroup="userData">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput id="username" ngModel name="username" required />
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary">Suggest a Username</button>
+    <br /><br />
+    <mat-form-field>
+      <mat-label>Mail</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </div>
+  <mat-form-field>
+    <mat-label>Secret Questions</mat-label>
+    <mat-select name="secret">
+      <mat-option value="pet">What was your first pet's name?</mat-option>
+      <mat-option value="color">What is your favorite color</mat-option>
+      <mat-option value="numOfMoves"
+        >How many times have you moved in your life?</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput name="questionAnswer" rows="3"></textarea>
+  </mat-form-field>
+  <mat-radio-group [ngModel]="genders[0]" name="gender-2nd-form">
+    <mat-radio-button *ngFor="let gender of genders" [value]="gender"
+      ><span>
+        {{ gender }}
+      </span></mat-radio-button
+    >
+  </mat-radio-group>
+  <button class="submit-button" mat-raised-button color="accent">Submit</button>
+</form>
