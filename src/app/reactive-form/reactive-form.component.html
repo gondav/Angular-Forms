@@ -1,13 +1,13 @@
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
   <h2>Reactive Form</h2>
-  <div>
+  <div formGroupName="userData">
     <mat-form-field>
       <mat-label>Username</mat-label>
       <input matInput formControlName="username" />
       <mat-error
         *ngIf="
-          !signUpForm.get('username')?.valid &&
-          signUpForm.get('username')?.touched
+          !signUpForm.get('userData.username')?.valid &&
+          signUpForm.get('userData.username')?.touched
         "
         >Please enter a valid username!</mat-error
       >
@@ -22,22 +22,35 @@
       <input matInput formControlName="email" />
       <mat-error
         *ngIf="
-          !signUpForm.get('email')?.valid && signUpForm.get('email')?.touched
+          !signUpForm.get('userData.email')?.valid &&
+          signUpForm.get('userData.email')?.touched
         "
         >Please enter a valid email address!</mat-error
       >
     </mat-form-field>
   </div>
-  <!-- <mat-form-field>
-    <mat-label>Secret Questions</mat-label>
-    <mat-select name="secret">
-      <mat-option value="pet">What was your first pet's name?</mat-option>
-      <mat-option value="color">What is your favorite color</mat-option>
-      <mat-option value="numOfMoves"
-        >How many times have you moved in your life?</mat-option
-      >
-    </mat-select>
-  </mat-form-field> -->
+  <div>
+    <h4>Your Hobbies</h4>
+    <mat-form-field formArrayName="hobbies">
+      <mat-label>Enter your hobby...</mat-label>
+      <mat-chip-grid #chipGrid>
+        <mat-chip-row
+          *ngFor="let hobbyControl of getControls()"
+          (removed)="removeHobby(hobbyControl.value)"
+        >
+          {{ hobbyControl.value }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      </mat-chip-grid>
+      <input
+        [matChipInputFor]="chipGrid"
+        (matChipInputTokenEnd)="onAddHobby($event)"
+        placeholder="New hobby..."
+      />
+    </mat-form-field>
+  </div>
 
   <mat-radio-group [ngModel]="genders[0]" formControlName="gender">
     <mat-radio-button *ngFor="let gender of genders" [value]="gender"
