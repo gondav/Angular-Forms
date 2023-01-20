@@ -4,7 +4,8 @@ form {
   flex-direction: column;
 }
 
-h2 {
+h2,
+h4 {
   color: #ff4081;
   text-align: center;
 }
