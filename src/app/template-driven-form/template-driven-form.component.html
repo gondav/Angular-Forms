@@ -42,7 +42,7 @@
     ></textarea>
   </mat-form-field>
   <p>Your reply: {{ answer }}</p>
-  <mat-radio-group [ngModel]="genders[0]" name="gender-1st-form">
+  <mat-radio-group [ngModel]="genders[0]" name="gender">
     <mat-radio-button *ngFor="let gender of genders" [value]="gender">
       <span>{{ gender }}</span></mat-radio-button
     >
