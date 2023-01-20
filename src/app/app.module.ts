@@ -11,6 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatChipsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
