@@ -8,20 +8,25 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
-  declarations: [AppComponent, TemplateDrivenFormComponent, ReactiveFormComponent],
+  declarations: [
+    AppComponent,
+    TemplateDrivenFormComponent,
+    ReactiveFormComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    FormsModule,
     MatRadioModule,
   ],
   providers: [],
