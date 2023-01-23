@@ -22,8 +22,7 @@ export class ReactiveFormComponent implements OnInit {
         email: new FormControl(
           null,
           [Validators.required, Validators.email],
-          null
-          // this.forbiddenEmail
+          this.forbiddenEmail
         ),
       }),
       gender: new FormControl('male'),
@@ -32,13 +31,32 @@ export class ReactiveFormComponent implements OnInit {
         new FormControl('Cooking'),
       ]),
     });
+    this.signUpForm.statusChanges.subscribe({
+      next: (v) => console.log(v),
+      error: (err) => console.log(err),
+    });
+    this.signUpForm.patchValue({
+      userData: {
+        username: 'Anna McCarthy',
+        email: 'anna.Mc@email.com',
+      },
+      gender: 'male',
+    });
   }
 
   onSubmit() {
     console.log(this.signUpForm);
-    console.log(
-      (this.signUpForm.get('userData') as FormGroup).get('username')?.value
-    );
+    // console.log(
+    //   (this.signUpForm.get('userData') as FormGroup).get('username')?.value
+    // );
+    this.signUpForm.reset({
+      userData: {
+        username: 'Username',
+        email: 'mail@email.com',
+      },
+      hobbies: ['Dancing', 'Cooking'],
+      gender: 'male',
+    });
   }
 
   getControls() {
@@ -82,7 +100,7 @@ export class ReactiveFormComponent implements OnInit {
           } else {
             resolve(null);
           }
-        }, 1000);
+        }, 2000);
       }
     );
     return promise;

@@ -13,12 +13,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveAssignmentComponent } from './reactive-assignment/reactive-assignment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateDrivenFormComponent,
     ReactiveFormComponent,
+    ReactiveAssignmentComponent,
   ],
   imports: [
     BrowserModule,

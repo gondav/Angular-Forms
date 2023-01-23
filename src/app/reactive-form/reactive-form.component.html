@@ -59,7 +59,7 @@
     </mat-form-field>
   </div>
 
-  <mat-radio-group [ngModel]="genders[0]" formControlName="gender">
+  <mat-radio-group formControlName="gender">
     <mat-radio-button *ngFor="let gender of genders" [value]="gender"
       ><span>
         {{ gender }}

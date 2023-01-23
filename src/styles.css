@@ -1,4 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+form {
+  /* max-width: 400px; */
+  display: flex;
+  flex-direction: column;
+}
+
+h2,
+h4 {
+  color: #ff4081;
+  text-align: center;
+}
+
+mat-form-field,
+button {
+  width: 100%;
+}
+
+p {
+  color: #ff4081;
+}
+
+mat-radio-button span {
+  color: white;
+  cursor: pointer;
+}
+
+button {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.submit-button {
+  margin-top: 1em;
+}

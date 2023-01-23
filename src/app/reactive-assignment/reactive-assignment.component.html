@@ -1,0 +1,36 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Project name</mat-label>
+    <input matInput formControlName="projectName" />
+    <mat-error
+      *ngIf="
+        projectForm.get('projectName').invalid &&
+        projectForm.get('projectName').touched
+      "
+    >
+      <span
+        *ngIf="projectForm.get('projectName').errors?.['isProjectNameForbidden'
+]; else elseBlock"
+        >Project name cannot be Test</span
+      >
+      <ng-template #elseBlock>
+        <span>Project name is invalid!</span>
+      </ng-template>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Project Status</mat-label>
+    <mat-select formControlName="projectStatus">
+      <mat-option
+        *ngFor="let projectStatus of projectStatuses"
+        [value]="projectStatus"
+        >{{ projectStatus }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="accent">Submit</button>
+</form>
