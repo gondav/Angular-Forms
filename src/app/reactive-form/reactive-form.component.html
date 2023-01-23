@@ -6,11 +6,18 @@
       <input matInput formControlName="username" />
       <mat-error
         *ngIf="
-          !signUpForm.get('userData.username')?.valid &&
+          signUpForm.get('userData.username')?.invalid &&
           signUpForm.get('userData.username')?.touched
         "
-        >Please enter a valid username!</mat-error
       >
+        <span
+          *ngIf="signUpForm.get('userData.username')?.errors?.['nameIsForbidden']; else elseBlock"
+          >This username is forbidden!</span
+        >
+        <ng-template #elseBlock>
+          <span>Invalid username!</span>
+        </ng-template>
+      </mat-error>
     </mat-form-field>
     <br />
     <button type="button" mat-raised-button color="primary">
@@ -36,7 +43,7 @@
       <mat-chip-grid #chipGrid>
         <mat-chip-row
           *ngFor="let hobbyControl of getControls()"
-          (removed)="removeHobby(hobbyControl.value)"
+          (removed)="onRemoveHobby(hobbyControl.value)"
         >
           {{ hobbyControl.value }}
           <button matChipRemove>
